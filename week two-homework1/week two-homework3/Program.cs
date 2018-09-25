@@ -26,6 +26,8 @@ namespace week_two_homework3
             int number = list.Count;
             for (int i = 0; i < number; i++)
                 Console.WriteLine(list[i]);
+
         }
     }
 }
+          

@@ -20,24 +20,17 @@ namespace week_two_homework2
             }
             int max = list[0];
             int min = list[0];
-            for (int i = 0; i < length; i++)
+            double sum = 0;
+            foreach (int n in list)
             {
-                if (max < list[i])
-                    max = list[i];
+                max = (n > max) ? n : max;
+                min = (n < min) ? n : min;
+                sum += n;
             }
+            double average = sum / list.Length;
             Console.WriteLine("the max is : " + max);
-            for (int i = 0; i < length; i++)
-            {
-                if (min > list[i])
-                    min = list[i];
-            }
             Console.WriteLine("the min is : " + min);
-            float sum = 0;
-            for (int i = 0; i < length; i++)
-            {
-                sum += list[i];
-            }
-            Console.WriteLine("the average is : " + sum / length);
+            Console.WriteLine("the average is : " + average);
             Console.WriteLine("the sum is : " + sum);
         }
     }
