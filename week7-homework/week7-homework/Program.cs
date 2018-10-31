@@ -15,9 +15,9 @@ namespace week7_homework_1
     [Serializable]
     public class Orderdetails
     {
-        public string ProductName;
-        public int ProductNum;
-        public double ProductPrice;
+        public string ProductName { set; get; }
+        public int ProductNum { set; get; }
+        public double ProductPrice { set; get; }
 
         public Orderdetails()
         {
@@ -50,8 +50,8 @@ namespace week7_homework_1
     public class Order
     {
         public List<Orderdetails> orderdetailsList = new List<Orderdetails>();
-        public string OrderID;
-        public string Customer;
+        public string OrderID { get; set; }
+        public string Customer{ get; set; }
         public Order()
         {
             this.OrderID = "";
@@ -171,7 +171,7 @@ namespace week7_homework_1
             }
         }
 
-        public void SearchByOrderID(string s)
+        public Order SearchByOrderID(string s)
         {
             
             Console.WriteLine("查询结果如下：");
@@ -181,10 +181,12 @@ namespace week7_homework_1
                 if (o == null)
                     throw new Exception("错误！没有该订单号订单！");
                 o.PrintOrder();
+                return o;
             }
             catch (OrderException e)
             {
                 Console.WriteLine(e.Message);
+                return null;
             }
         }
 
