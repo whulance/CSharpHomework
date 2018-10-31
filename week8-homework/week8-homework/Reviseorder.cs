@@ -16,7 +16,7 @@ namespace week8_homework
 {
     public partial class Reviseorder : Form
     {
-        public Order order1 = new Order();
+        public Order order1 { set; get; }
         
         
 
@@ -26,7 +26,8 @@ namespace week8_homework
             InitializeComponent();
             order1 = order;
             dataGridView1.DataSource = new BindingList<Orderdetails>(order1.orderdetailsList);
-            //textBox1.DataBindings.Add("Text", order.OrderID, "value", false, DataSourceUpdateMode.OnPropertyChanged);
+            textBox1.DataBindings.Add("Text", this,"order1.OrderID");
+            textBox2.DataBindings.Add("Text", this, "order1.Customer");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
